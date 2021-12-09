@@ -16,6 +16,7 @@ var (
 		"imperial": "F",
 	}
 	// список исключаемых данных о погоде
+	IncludeALl = []string{}
 	ExcludeAll = []string{"current", "minutely", "hourly", "daily", "alerts"}
 	OnlyDaily  = []string{"current", "minutely", "hourly", "alerts"}
 )
@@ -87,7 +88,7 @@ func IsUnitValid(unit string) bool {
 
 // Проверяет список исключаемых данных на соответствие
 // возможным значениям
-func IsExcludeValid(exclude []string) []bool {
+func IsDataToExcludeNamesValid(exclude []string) []bool {
 	valid := make([]bool, len(exclude), cap(exclude))
 	for i := range exclude {
 		exists := false
